@@ -1,3 +1,7 @@
+!pip install asciichartpy
+
+
+
 import datetime
 import math
 import requests
