@@ -9,15 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # Update to v3
+        uses: actions/checkout@v4  # Update to v4
 
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x' # specify the Python version you need
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt # if you have any dependencies, replace `requirements.txt` with the actual file name
-
-      - name: Run script
-        run: python generate_plot.py
+          python-version: '3.x'  # Use '3.x' to specify any version of Python 3
