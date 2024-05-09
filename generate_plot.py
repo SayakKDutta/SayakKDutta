@@ -1,10 +1,13 @@
+import datetime
+import math
 import requests
 import matplotlib.pyplot as plt
+import os
 import base64
 
 USERNAME = 'Sayak_k'
 TIME_CLASS = 'rapid'
-RULES = 'chess'
+RULES = 'chess'  # chess960 and other variants possible here
 NGAMES = 50
 headers = {"User-Agent": "ChessRatingRefresh/1.0 sayak.kr.dutta@gmail.com"}
 ARCHIVES_URL = 'https://api.chess.com/pub/player/{user}/games/archives'
@@ -43,6 +46,9 @@ def get_ratings_from_games(games: list) -> list:
             ratings.append(game['black']['rating'])
     return ratings[::-1]
 
+def get_current_rating() -> int:
+    pass
+
 def main():
     final_games = []
     archives = get_archives()
@@ -62,7 +68,7 @@ def main():
     plt.ylabel('Chess.com Rating', color='red')
     plt.grid(False)
     plt.gca().set_facecolor('beige')  # Set background color
-    plt.savefig(LOCAL_PLOT_PATH)  # Save the plot locally
+    plt.savefig(LOCAL_PLOT_PATH)  # Save the plot locally in Colab environment
     plt.show()
 
     # Upload the plot to GitHub repository
@@ -75,7 +81,7 @@ def upload_file_to_github(file_path):
 
     url = f'https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/contents/{file_path}'
     headers = {
-        'Authorization': f'token {ACCESS_TOKEN}',  # Assuming you've defined ACCESS_TOKEN elsewhere
+        'Authorization': f'token {ACCESS_TOKEN}',
         'Accept': 'application/vnd.github.v3+json'
     }
     payload = {
