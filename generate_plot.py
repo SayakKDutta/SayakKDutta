@@ -7,7 +7,7 @@ import base64
 
 USERNAME = 'Sayak_k'
 TIME_CLASS = 'rapid'
-RULES = 'chess'  # chess960 and other variants possible here 
+RULES = 'chess'  # chess960 and other variants possible here 1
 NGAMES = 50
 headers = {"User-Agent": "ChessRatingRefresh/1.0 sayak.kr.dutta@gmail.com"}
 ARCHIVES_URL = 'https://api.chess.com/pub/player/{user}/games/archives'
