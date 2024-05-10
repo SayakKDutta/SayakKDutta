@@ -57,11 +57,12 @@ def main():
     plt.gca().set_facecolor('beige')  # Set background color
     
     # Save the plot as a PNG file named plot.png in the assets directory
-    plot_path = os.path.join('assets/', 'plot.png')
-    plt.savefig(plot_path)
+    plot_path = os.path.join('assets/', 'plot')
+    plt.savefig(plot_path, format='png')  # Save the plot as PNG format
 
-    return plot_path
+    return plot_path + '.png'  # Return the path with .png extension
 
 if __name__ == "__main__":
     plot_path = main()
+
     print("Plot saved at:", plot_path)
