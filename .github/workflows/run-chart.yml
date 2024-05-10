@@ -14,28 +14,36 @@ jobs:
   ratings-chart:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
         with:
           token: ${{ secrets.GH_TOKEN_1 }}
-        name: Checkout repository
 
-      - uses: actions/setup-python@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
         with:
           python-version: 3.7
-        name: Setup Python
 
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
 
-      - name: Create Chart
-        run: python generate_plot.py > assets/plot.png
+      - name: Generate Plot
+        run: python generate_plot.py
+        working-directory: ./assets  # Set the working directory to the 'assets' directory
+
+      - name: Check if plot.png exists
+        run: |
+          if [ ! -f "plot.png" ]; then
+            echo "Error: plot.png not found"
+            exit 1
+          fi
 
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add assets/plot.png
+          git add plot.png
           git commit -m "Add chess rating plot"
           git push origin main
 
