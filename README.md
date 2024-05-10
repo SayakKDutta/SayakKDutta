@@ -40,4 +40,7 @@
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=sayakkdutta&" alt="sayakkdutta" width="400" height="200" />
 </p>
 
-![Chess Rating Over Time](assets/plot.png)
+# Chess Rating Plot
+
+<img src="data:image/png;base64,{{ encoded_image }}" alt="Chess Rating Over Time" />
+
