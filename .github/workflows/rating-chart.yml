@@ -15,11 +15,16 @@ jobs:
         with:
           token: ${{ secrets.GH_TOKEN_1 }}
         name: Setup Python
+
       - uses: actions/setup-python@v2
         with:
           python-version: 3.7
         name: Install dependencies
-      - run: pip install -r requirements.txt
+
+      - name: Install Python dependencies
+        run: |
+          pip install -i https://pypi.org/simple asciichartpy==1.5.24 certifi==2022.12.7 chardet==3.0.4 deprecated==1.2.10 idna==2.10 pygithub==1.51 pyjwt==2.4.0 requests==2.26.0 urllib3==1.26.5 wrapt==1.12.1 matplotlib
+
       
       - name: Create Chart
         run: python codes/generate_plot.py > plot.png
