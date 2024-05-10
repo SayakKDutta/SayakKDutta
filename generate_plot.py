@@ -54,9 +54,9 @@ def main():
     plt.ylabel('Chess.com Rating', color='red')
     plt.grid(False)
     plt.gca().set_facecolor('beige')  # Set background color
-
-    # Save the plot as a PNG image
+    
+    # Save the plot as a PNG file named plot.png
     plt.savefig('plot.png')
-   
+
 if __name__ == "__main__":
     main()
