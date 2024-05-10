@@ -37,7 +37,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git add assets/plot.png
           git commit -m "Add chess rating plot"
-          git push origin master
+          git push origin main
 
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN_1 }}
