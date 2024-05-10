@@ -1,4 +1,4 @@
-name: Create Chart 1
+name: Create Chart 5
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - master
     paths-ignore:
       - README.md
-      - .github/workflows/rating-chart.yml
+      - .github/workflows/rating-chart5.yml
   schedule:
     - cron: "*/1 * * * *"
 
