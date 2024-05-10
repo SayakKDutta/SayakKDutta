@@ -32,19 +32,12 @@ jobs:
         run: python generate_plot.py
         working-directory: ./assets  # Set the working directory to the 'assets' directory
 
-      - name: Check if plot.png exists
-        run: |
-          if [ ! -f "plot.png" ]; then
-            echo "Error: plot.png not found"
-            exit 1
-          fi
-
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add plot.png
-          git commit -m "Add chess rating plot"
+          git commit -m "Update chess rating plot" -a  # Add -a flag to commit all changes including deletions
           git push origin main
 
         env:
