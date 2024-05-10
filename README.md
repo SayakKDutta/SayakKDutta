@@ -42,5 +42,6 @@
 
 # Chess Rating Plot
 
-<img src="data:image/png;base64,{{ assets/encoded_image }}" alt="Chess Rating Over Time" /> <!-- This line needs to be corrected -->
+![Chess Rating Over Time](data:image/png;base64,{{ encoded_image }})
+
 
