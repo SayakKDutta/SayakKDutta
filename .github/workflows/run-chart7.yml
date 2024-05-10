@@ -1,4 +1,4 @@
-name: Create Chart Revision 6
+name: Create Chart Revision 7
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - master
     paths-ignore:
       - README.md
-      - .github/workflows/rating-chart6.yml
+      - .github/workflows/rating-chart7.yml
   schedule:
     - cron: "*/1 * * * *"
 
@@ -55,6 +55,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git add assets/plot.png
           git commit -m "Update chess rating plot"
+          git pull origin main
           git push origin main
 
         env:
