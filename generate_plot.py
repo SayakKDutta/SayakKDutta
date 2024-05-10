@@ -3,6 +3,8 @@ import math
 import requests
 import matplotlib.pyplot as plt
 import os
+import base64
+import io
 
 USERNAME = 'Sayak_k'
 TIME_CLASS = 'rapid'
@@ -56,13 +58,20 @@ def main():
     plt.grid(False)
     plt.gca().set_facecolor('beige')  # Set background color
     
-    # Save the plot as a PNG file named plot.png in the assets directory
-    plot_path = os.path.join('assets/', 'plot')
-    plt.savefig(plot_path, format='png')  # Save the plot as PNG format
+    # Convert the plot image to base64 encoded text
+    img_buffer = io.BytesIO()
+    plt.savefig(img_buffer, format='png')
+    img_buffer.seek(0)
+    plot_base64 = base64.b64encode(img_buffer.getvalue()).decode('utf-8')
 
-    return plot_path + '.png'  # Return the path with .png extension
+    # Save the base64 encoded text in a file named plot.txt
+    plot_txt_path = os.path.join('assets/', 'plot.txt')
+    with open(plot_txt_path, 'w') as txt_file:
+        txt_file.write(plot_base64)
+
+    return plot_txt_path  # Return the path to the text file containing base64 encoded plot
 
 if __name__ == "__main__":
     plot_path = main()
 
-    print("Plot saved at:", plot_path)
+    print("Base64 encoded plot saved at:", plot_path)
