@@ -29,7 +29,9 @@ jobs:
         run: python generate_plot.py
 
       - name: Move Plot to Assets
-        run: mv plot.png assets/plot.png
+        run: |
+          mkdir -p assets
+          mv plot.png assets/plot.png
 
       - name: Update README
         run: |
@@ -44,4 +46,4 @@ jobs:
           git commit -m "Update README with Chess Rating Plot"
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN_1 }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
