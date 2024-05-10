@@ -28,8 +28,8 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Generate Plot
-        run: python generate_plot.py
+      - name: Create Chart
+        run: python generate_plot.py > assets/plot.png
         
       - name: embed plot
         run: python plotembed.py
