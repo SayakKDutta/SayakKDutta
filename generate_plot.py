@@ -57,7 +57,7 @@ def main():
     plt.gca().set_facecolor('beige')  # Set background color
     
     # Save the plot as a PNG file named plot.png in the assets directory
-    plot_path = os.path.join('SayakKDutta/', 'assets/', 'plot.png')
+    plot_path = os.path.join('assets/', 'plot.png')
     plt.savefig(plot_path)
 
     return plot_path
