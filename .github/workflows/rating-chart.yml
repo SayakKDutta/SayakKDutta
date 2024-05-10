@@ -28,15 +28,13 @@ jobs:
       - name: Generate Plot
         run: python generate_plot.py
 
-      - name: Convert Plot to PNG
-        run: |
-          python codes/convert_plot_to_png.py
-          mv plot.png $GITHUB_WORKSPACE/plot.png
+      - name: Move Plot to Assets
+        run: mv plot.png assets/plot.png
 
-      - name: Embed Plot in README
+      - name: Update README
         run: |
-          base64 -w 0 $GITHUB_WORKSPACE/plot.png > plot_base64.txt
-          echo -e "\n![Chess Rating Plot](data:image/png;base64,$(cat plot_base64.txt))" >> README.md
+          currentDate=$(date +'%Y-%m-%d %H:%M:%S')
+          printf "\n![Chess Rating Plot](assets/plot.png)\n\nPlot last updated - ${currentDate}" >> README.md
 
       - name: Commit Changes
         run: |
@@ -46,4 +44,4 @@ jobs:
           git commit -m "Update README with Chess Rating Plot"
           git push
         env:
-          GH_TOKEN_1: ${{ secrets.GH_TOKEN_1 }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN_1 }}
