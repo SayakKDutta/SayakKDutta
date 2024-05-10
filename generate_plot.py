@@ -2,6 +2,7 @@ import datetime
 import math
 import requests
 import matplotlib.pyplot as plt
+import os
 
 USERNAME = 'Sayak_k'
 TIME_CLASS = 'rapid'
@@ -55,8 +56,12 @@ def main():
     plt.grid(False)
     plt.gca().set_facecolor('beige')  # Set background color
     
-    # Save the plot as a PNG file named plot.png
-    plt.savefig('plot.png')
+    # Save the plot as a PNG file named plot.png in the repository
+    plot_path = os.path.join(os.getcwd(), 'plot.png')
+    plt.savefig(plot_path)
+
+    return plot_path
 
 if __name__ == "__main__":
-    main()
+    plot_path = main()
+    print("Plot saved at:", plot_path)
