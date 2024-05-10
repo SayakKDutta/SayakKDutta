@@ -3,9 +3,6 @@ on:
   push:
     branches:
       - master
-    paths-ignore:
-      - README.md
-      - .github/workflows/rating-chart.yml
   schedule:
     - cron: "*/1 * * * *"
 
@@ -22,27 +19,19 @@ jobs:
         with:
           python-version: 3.7
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Generate Plot
+      - name: Run generate_plot.py
         run: python generate_plot.py
 
-      - name: Move Plot to Assets
-        run: |
-          mkdir -p assets
-          mv plot.png assets/plot.png
-
-      - name: Update README
+      - name: Update README with plot
         run: |
           currentDate=$(date +'%Y-%m-%d %H:%M:%S')
-          printf "\n![Chess Rating Plot](assets/plot.png)\n\nPlot last updated - ${currentDate}" >> README.md
+          printf "\n![Chess Rating Plot](plot.png)\n\nPlot last updated - ${currentDate}" >> README.md
 
-      - name: Commit Changes
+      - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add README.md
+          git add README.md plot.png
           git commit -m "Update README with Chess Rating Plot"
           git push
         env:
