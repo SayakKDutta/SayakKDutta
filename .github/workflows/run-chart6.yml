@@ -28,13 +28,28 @@ jobs:
         run: |
           pip install -r requirements.txt
 
+      - name: Delete existing plot.png
+        run: rm -f assets/plot.png
+        
       - name: Create Chart
         run: python generate_plot.py > assets/plot.png
         
       - name: embed plot
         run: python plotembed.py
 
+      - name: Check if plot.png exists
+        id: check_plot
+        run: |
+          if [ -f "assets/plot.png" ]; then
+            echo "Plot image exists."
+            echo "::set-output name=plot_exists::true"
+          else
+            echo "Plot image does not exist."
+            echo "::set-output name=plot_exists::false"
+          fi
+
       - name: Commit and push changes
+        if: steps.check_plot.outputs.plot_exists == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
