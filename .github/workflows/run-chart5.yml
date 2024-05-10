@@ -30,8 +30,7 @@ jobs:
 
       - name: Generate Plot
         run: python generate_plot.py
-        working-directory: ./assets  # Set the working directory to the 'assets' directory
-
+        
       - name: embed plot
         run: python plotembed.py
 
