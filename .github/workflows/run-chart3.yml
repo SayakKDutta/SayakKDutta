@@ -6,7 +6,7 @@ on:
       - master
     paths-ignore:
       - README.md
-      - .github/workflows/rating-chart1.yml
+      - .github/workflows/rating-chart3.yml
   schedule:
     - cron: "*/1 * * * *"
 
@@ -37,7 +37,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add plot.png
-          git commit -m "Update chess rating plot" -a  # Add -a flag to commit all changes including deletions
+          git commit -m "Update chess rating plot"
           git push origin main
 
         env:
