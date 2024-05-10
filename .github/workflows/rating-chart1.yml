@@ -4,7 +4,7 @@ on:
     branches: master
     paths-ignore:
       - README.md
-      - .github/workflows/rating-chart.yml
+      - .github/workflows/rating-chart1.yml
   schedule:
     - cron: "0 */5 * * *"
 jobs:
