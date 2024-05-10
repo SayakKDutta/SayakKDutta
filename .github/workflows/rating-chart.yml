@@ -19,8 +19,14 @@ jobs:
         with:
           python-version: 3.7
 
+      - name: Debug current directory
+        run: pwd
+
       - name: Run generate_plot.py
         run: python generate_plot.py
+
+      - name: List files in directory
+        run: ls -l
 
       - name: Update README with plot
         run: |
