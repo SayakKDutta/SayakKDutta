@@ -1,4 +1,4 @@
-name: Create Chart 123
+name: Create Chart 1
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - master
     paths-ignore:
       - README.md
-      - .github/workflows/rating-chart3.yml
+      - .github/workflows/rating-chart.yml
   schedule:
     - cron: "*/1 * * * *"
 
@@ -31,6 +31,9 @@ jobs:
       - name: Generate Plot
         run: python generate_plot.py
         working-directory: ./assets  # Set the working directory to the 'assets' directory
+
+      - name: embed plot
+        run: python plotembed.py
 
       - name: Commit and push changes
         run: |
