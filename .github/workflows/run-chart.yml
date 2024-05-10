@@ -1,0 +1,43 @@
+name: Create Chart 12
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - README.md
+      - .github/workflows/rating-chart2.yml
+  schedule:
+    - cron: "*/1 * * * *"
+
+jobs:
+  ratings-chart:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GH_TOKEN_1 }}
+        name: Checkout repository
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+        name: Setup Python
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Create Chart
+        run: python generate_plot.py > assets/plot.png
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add assets/plot.png
+          git commit -m "Add chess rating plot"
+          git push origin master
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN_1 }}
