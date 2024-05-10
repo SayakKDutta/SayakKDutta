@@ -42,5 +42,5 @@
 
 # Chess Rating Plot
 
-<img src="data:image/png;base64,{{ encoded_image }}" alt="Chess Rating Over Time" />
+<img src="data:image/png;base64,{{ encoded_image }}" alt="Chess Rating Over Time" /> #1
 
