@@ -41,6 +41,8 @@
 </p>
 
 # Chess Rating Plot
-![Chess Rating Over Time](data:image/png;base64,{{encoded_image}})
+
+![Plot](https://github.com/SayakKDutta/SayakKDutta/actions/runs/9041422850/artifacts/1493266682)
+
 
 
