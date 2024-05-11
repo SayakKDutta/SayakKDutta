@@ -22,17 +22,19 @@ jobs:
 
     - name: Check if assets/plot.png exists
       run: test -f assets/plot.png
-      continue-on-error: true
       id: check_plot_existence
 
-    - name: Run generate_plot.py and save or update plot
+    - name: Generate and Update Plot
       run: |
         python generate_plot.py
-        if [ ${{ steps.check_plot_existence.outputs.return-code }} -eq 0 ]; then
+        if [ -n "${{ steps.check_plot_existence.outputs.return-code }}" ] && [ "${{ steps.check_plot_existence.outputs.return-code }}" -eq 0 ]; then
           git add assets/plot.png
-          git commit -m "Update plot.png"
+          git commit -m "Update plot.png" --author="SayakKDutta <sayk.kr.dutta1@gmail.com>"
         else
           git add assets/plot.png
-          git commit -m "Add plot.png"
+          git commit -m "Add plot.png" --author="SayakKDutta <sayk.kr.dutta1@gmail.com>"
         fi
-        git push
+        git push origin HEAD
+
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN_1 }}
