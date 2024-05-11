@@ -34,11 +34,8 @@ jobs:
           name: plot
           path: assets/plot.png
 
-      - name: Download plot artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: plot
-          path: assets
+      - name: Move plot.png to assets folder
+        run: mv $GITHUB_WORKSPACE/assets/plot.png $GITHUB_WORKSPACE/assets/plot.png
 
       - name: Update README
         run: |
