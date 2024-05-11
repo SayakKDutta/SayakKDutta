@@ -42,7 +42,7 @@
 
 # Chess Rating Plot
 
-![Plot](https://github.com/SayakKDutta/SayakKDutta/actions/runs/9041422850/artifacts/1493266682)
+![Plot](assets/plot.png)
 
 
 
