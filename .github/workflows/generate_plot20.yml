@@ -50,7 +50,7 @@ jobs:
       - name: Add changes
         run: git add assets
       - name: Commit changes
-        run: git commit -m "Update assets folder with downloaded artifact"
+        run: git commit -m "Update assets folder with downloaded artifact" --allow-empty
       - name: Push changes
         run: git push
 
