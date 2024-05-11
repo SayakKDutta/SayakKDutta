@@ -35,13 +35,13 @@ jobs:
           path: assets/plot.png
 
       - name: Move plot.png to assets folder
-        run: mv $GITHUB_WORKSPACE/assets/plot.png $GITHUB_WORKSPACE/assets/plot.png
+        run: mv $GITHUB_WORKSPACE/assets/plot.png $GITHUB_WORKSPACE/assets/updated_plot.png
 
       - name: Update README
         run: |
           currentDate=$(TZ=India/Kolkata date)
           printf "\nChart last updated - ${currentDate}" >> README.md
-
+          
       - name: Commit changes
         if: ${{ failure() }}
         uses: EndBug/add-and-commit@v4
@@ -49,6 +49,6 @@ jobs:
           author_name: SayakKDutta
           author_email: sayak.kr.dutta1@gmail.com
           message: "Auto updating my readme and workflow timing!"
-          add: "README.md .github/workflows/rating-chart.yml"
+          add: "README.md .github/workflows/rating-chart.yml assets/updated_plot.png"
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN_1 }}
