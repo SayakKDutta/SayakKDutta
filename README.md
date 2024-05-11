@@ -40,9 +40,9 @@
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=sayakkdutta&" alt="sayakkdutta" width="400" height="200" />
 </p>
 
-# Chess Rating Plot
+# Chess Rating Plot of my last 50 matches
+<img src="assets/plot.png" width="400" height="400"> <br> <img src="chess-checkmate.gif" width="400" height="400">
 
-![Plot](assets/plot.png)
 
 
 
