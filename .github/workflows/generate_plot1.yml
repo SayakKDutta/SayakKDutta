@@ -1,0 +1,41 @@
+name: Generate and Update Plot
+
+on:
+  schedule:
+    - cron: "*/1 * * * *" # Runs the workflow every 1 minute
+
+jobs:
+  generate_plot:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt # Assuming you have a requirements.txt file
+
+    - name: Pull latest changes from remote repository
+      run: git pull origin main
+
+    - name: Check if assets/plot.png exists
+      run: test -f assets/plot.png
+      continue-on-error: true
+      id: check_plot_existence
+
+    - name: Run generate_plot.py and save or update plot
+      run: |
+        python generate_plot.py
+        if [ ${{ steps.check_plot_existence.outputs.return-code }} -eq 0 ]; then
+          git add assets/plot.png
+          git commit -m "Update plot.png"
+        else
+          git add assets/plot.png
+          git commit -m "Add plot.png"
+        fi
+        git push
