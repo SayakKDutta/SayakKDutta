@@ -1,10 +1,9 @@
 import datetime
 import math
+import os  # Import the os module
 import requests
 import matplotlib.pyplot as plt
-import os
-import base64
-import io
+from io import BytesIO
 
 USERNAME = 'Sayak_k'
 TIME_CLASS = 'rapid'
@@ -57,21 +56,20 @@ def main():
     plt.ylabel('Chess.com Rating', color='red')
     plt.grid(False)
     plt.gca().set_facecolor('beige')  # Set background color
+
+    # Create a buffer for the image data
+    buffer = BytesIO()
+    plt.savefig(buffer, format='png')  # Save the plot to the buffer as PNG
+    buffer.seek(0)  # Reset the buffer position to the beginning
     
-    # Convert the plot image to base64 encoded text
-    img_buffer = io.BytesIO()
-    plt.savefig(img_buffer, format='png')
-    img_buffer.seek(0)
-    plot_base64 = base64.b64encode(img_buffer.getvalue()).decode('utf-8')
-
-    # Save the base64 encoded text in a file named plot.txt
-    plot_txt_path = os.path.join('assets/', 'plot.txt')
-    with open(plot_txt_path, 'w') as txt_file:
-        txt_file.write(plot_base64)
-
-    return plot_txt_path  # Return the path to the text file containing base64 encoded plot
-
+    # Set the directory where you want to save the file
+    save_directory = "assets/"
+    file_path = os.path.join(save_directory, 'plot.png')  # Construct the file path
+    
+    with open(file_path, "wb") as f:
+        f.write(buffer.read())  # Write the image data from the buffer to the file
+    
+    buffer.close()  # Close the buffer
+   
 if __name__ == "__main__":
-    plot_path = main()
-
-    print("Base64 encoded plot saved at:", plot_path)
+    main()
