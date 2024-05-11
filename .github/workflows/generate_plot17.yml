@@ -13,12 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.GH_TOKEN_1 }}
 
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: 3.7
 
@@ -29,13 +29,12 @@ jobs:
         run: python generate_plot.py
 
       - name: Upload plot.png as artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: plot
           path: assets/plot.png
+          overwrite: true
 
-      - name: Move plot.png to assets folder
-        run: mv $GITHUB_WORKSPACE/assets/plot.png $GITHUB_WORKSPACE/assets/updated_plot.png
 
       - name: Update README
         run: |
