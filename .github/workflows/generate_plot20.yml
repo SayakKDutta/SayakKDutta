@@ -43,6 +43,17 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R assets
 
+      - name: Configure Git
+        run: |
+          git config --global user.name "SayakKDutta"
+          git config --global user.email "sayak.kr.dutta1@gmail.com"
+      - name: Add changes
+        run: git add assets
+      - name: Commit changes
+        run: git commit -m "Update assets folder with downloaded artifact"
+      - name: Push changes
+        run: git push
+
 
       - name: Update README
         run: |
