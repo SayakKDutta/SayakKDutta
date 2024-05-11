@@ -34,6 +34,12 @@ jobs:
           name: plot
           path: assets/plot.png
 
+      - name: Download plot artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: plot
+          path: assets
+
       - name: Update README
         run: |
           currentDate=$(TZ=India/Kolkata date)
