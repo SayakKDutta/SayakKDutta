@@ -20,9 +20,6 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt # Assuming you have a requirements.txt file
 
-    - name: Pull latest changes from remote repository
-      run: git pull origin main
-
     - name: Check if assets/plot.png exists
       run: test -f assets/plot.png
       continue-on-error: true
