@@ -35,6 +35,13 @@ jobs:
           path: assets/plot.png
           overwrite: true
 
+      - name: Download plot.png as artifact
+        uses: actions/download-artifact@v4
+        with:
+         name: plot
+      - name: Display structure of downloaded files
+        run: ls -R
+
 
       - name: Update README
         run: |
