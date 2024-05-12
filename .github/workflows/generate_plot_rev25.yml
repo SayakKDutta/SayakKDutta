@@ -25,8 +25,10 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Generate plot.png
-        run: python generate_plot.py
+      - name: Generate plot.png and plot2.png
+        run: |
+          python generate_plot.py
+          python rating_chess_com.py
 
       - name: Upload plot.png as artifact
         uses: actions/upload-artifact@v4
@@ -34,14 +36,25 @@ jobs:
           name: plot
           path: assets/plot.png
           overwrite: true
+          
+      - name: Upload plot2.png as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: plot2
+          path: assets/plot2.png
+          overwrite: true
 
       - name: Download plot.png as artifact
         uses: actions/download-artifact@v4
         with:
          name: plot
          path: assets
-      - name: Display structure of downloaded files
-        run: ls -R assets
+
+      - name: Download plot2.png as artifact
+        uses: actions/download-artifact@v4
+        with:
+         name: plot2
+         path: assets
 
       - name: Configure Git
         run: |
@@ -52,7 +65,7 @@ jobs:
       - name: Add changes
         run: git add assets
       - name: Commit changes
-        run: git commit -m "Update assets folder with downloaded artifact" --allow-empty
+        run: git commit -m "Update assets folder with downloaded artifacts" --allow-empty
       - name: Push changes
         run: git push --force
 
