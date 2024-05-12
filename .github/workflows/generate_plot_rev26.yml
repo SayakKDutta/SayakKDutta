@@ -83,5 +83,20 @@ jobs:
           author_email: sayak.kr.dutta1@gmail.com
           message: "Auto updating my readme and workflow timing!"
           add: "README.md .github/workflows/rating-chart.yml assets/updated_plot.png"
+
+      - name: Add Date-Time Tag
+        run: |
+          echo "Timestamp: $(TZ='Asia/Kolkata' date '+%Y-%m-%d %H:%M:%S IST')" >> README.md
+          # This command appends the current date and time in IST timezone to README.md
+
+      - name: Commit Timestamp Changes
+        run: |
+          git config --local user.email "sayak.kr.dutta1@gmail.com"
+          git config --local user.name "SayakKDutta"
+          git add README.md
+          git commit -m "Rating Chart and my Stats last updated on (TimeZone:IST)"
+          git push
+
+        
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN_1 }}
