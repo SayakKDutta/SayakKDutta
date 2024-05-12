@@ -9,7 +9,7 @@
 
 - 🌱 I’m currently learning **Machine Learning, Statistics, Deep Learning, GenAI**
 
-- 💬 Ask me about **[chess](https://www.chess.com/member/sayak_k), Harry Potter and Sci-Fi movies**
+- 💬 Ask me about **[Chess](https://www.chess.com/member/sayak_k), Harry Potter and Sci-Fi movies**
 
 - ⚡ Fun fact **I think I am funny**
 
