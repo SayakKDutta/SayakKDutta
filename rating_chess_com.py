@@ -32,28 +32,27 @@ BEST_RATING_TYPE = rating_type
 TOP_PUZZLE_RUSH_SCORE = puzzle_score
 TOP_PUZZLE_RUSH_SCORE_TYPE = puzzle_type
 
-
+#2nd part
+# Fetch the image content from GitHub
 # Fetch the image content from GitHub
 github_url = "https://github.com/SayakKDutta/SayakKDutta/blob/main/phpogr0qU.png?raw=true"
 response = requests.get(github_url)
 image_content = Image.open(BytesIO(response.content))
 
 # Define the text to be printed in the PNG
-# Define the text to be printed in the PNG
 text = f"""
 BEST RATING   {rating}
 
-BEST RATING
+BEST RATING 
    TYPE             {rating_type}
 
-TOP PUZZLE
+TOP PUZZLE  
 RUSH SCORE   {puzzle_score}
 
-TOP PUZZLE
+TOP PUZZLE 
 RUSH SCORE   {puzzle_type}
-   TYPE
+   TYPE     
 """
-
 # Create a figure with the same size as the background image
 fig, ax = plt.subplots(figsize=(20, 8))
 
@@ -66,19 +65,14 @@ ax.text(0, 0, text, va='top', ha='left', fontsize=24, color='white', fontweight=
 # Hide axes
 ax.axis('off')
 
-# Create a buffer for the image data
-buffer = BytesIO()
-plt.savefig(buffer, format='png')  # Save the plot to the buffer as PNG
-buffer.seek(0)  # Reset the buffer position to the beginning
-
 # Set the directory where you want to save the file
 save_directory = "assets/"
 os.makedirs(save_directory, exist_ok=True)  # Create the directory if it doesn't exist
-file_path = os.path.join(save_directory, 'plot2.png')  # Construct the file path
+file_path = os.path.join(save_directory, 'plot3.png')  # Construct the file path
 
-# Write the image data from the buffer to the file
-with open(file_path, "wb") as f:
-    f.write(buffer.read())
+# Save the plot as a PNG file
+plt.savefig(file_path, format='png', bbox_inches='tight', dpi=300)
 
-buffer.close()  # Close the buffer
+# Close the plot
+plt.close()
 
