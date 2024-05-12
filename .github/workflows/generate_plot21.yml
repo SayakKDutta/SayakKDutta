@@ -52,7 +52,7 @@ jobs:
       - name: Commit changes
         run: git commit -m "Update assets folder with downloaded artifact" --allow-empty
       - name: Push changes
-        run: git push
+        run: git push --force
 
 
       - name: Update README
