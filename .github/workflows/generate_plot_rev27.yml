@@ -73,7 +73,7 @@ jobs:
       - name: Update README
         run: |
           currentDate=$(TZ=India/Kolkata date)
-          echo "\nChart last updated - ${currentDate}" >> README.md
+          echo "Rating Chart and my Stats last updated on (TimeZone:IST)  ${currentDate}" >> README.md
           
       - name: Commit changes
         if: ${{ failure() }}
