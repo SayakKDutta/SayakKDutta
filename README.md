@@ -7,7 +7,7 @@
 
 - 🔭 I’m currently working on **Data Science, Natural Language Processing**
 
-- 🌱 I’m currently learning **Machine Learning, Statistics, Deep Learning**
+- 🌱 I’m currently learning **Machine Learning, Statistics, Deep Learning, GenAI**
 
 - 💬 Ask me about **[chess](https://www.chess.com/member/sayak_k), Harry Potter and Sci-Fi movies**
 
