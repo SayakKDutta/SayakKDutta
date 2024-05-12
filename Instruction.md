@@ -1,4 +1,4 @@
-Instructions
+## Instructions
 
 Fork this repo
 Create a new token from here github.com/settings/tokens/new
@@ -6,7 +6,7 @@ Give repo read write and workflow permissions to the token and store its value
 Add the token as a repo secret (Settings -> Secret) with key GH_TOKEN_1 and value equal to token value stored above
 
 
-Working
+## Working
 
 
 Fetches my chess statistics and results of my last 50 games from chess.com by using UNOFFICIAL APIS.
@@ -15,7 +15,7 @@ Updates my results at midnight everyday
 Updates workflow file at midnight everyday
 Repeats from step 1
 
-NOTE:
+### NOTE:
 
 1) Baisic structure of your github profile with---- https://rahuldkjain.github.io/gh-profile-readme-generator/
 
