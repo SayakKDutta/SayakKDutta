@@ -41,7 +41,7 @@
 </p>
 
 ## Chess Rating Plot of my last 50 matches in chess.com
-<img src="assets/plot.png" width="300" height="400">  <img src="chess-checkmate.gif" width="300" height="400">
+<img src="assets/plot.png" width="400" height="300">  <img src="chess-checkmate.gif" width="300" height="300">
 <!-- LAST_UPDATED_TIMESTAMP -->
 
 
