@@ -1,5 +1,5 @@
 <h1 align="left">Hello, I'm Sayak !!</h1>
-<h3 align="left">Engineer | Data Science Enthusiast | Problem Solver | Chess Player ♔ </h3>
+<h3 align="left">Engineer | Data Science Enthusiast | Problem Solver | Chess Player ♔♘ </h3>
 
 [![Profile views](https://komarev.com/ghpvc/?username=sayakkdutta&label=Profile%20views&color=0e75b6&style=flat)](https://komarev.com/ghpvc/?username=sayakkdutta&label=Profile%20views&color=0e75b6&style=flat)
 
