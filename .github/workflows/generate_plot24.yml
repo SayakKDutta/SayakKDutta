@@ -60,7 +60,7 @@ jobs:
       - name: Update README
         run: |
           currentDate=$(TZ=India/Kolkata date)
-          printf "\nChart last updated - ${currentDate}" >> README.md
+          echo "\nChart last updated - ${currentDate}" >> README.md
           
       - name: Commit changes
         if: ${{ failure() }}
