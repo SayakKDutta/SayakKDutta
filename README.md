@@ -42,6 +42,7 @@
 
 
 [![Stats](https://github-readme-stats.vercel.app/api?username=SayakKDutta&show_icons=true&theme=radical)](https://github-readme-stats.vercel.app/api?username=SayakKDutta&show_icons=true&theme=radical)
+<img align="right" alt="Coding" width="200" src="[[https://github.com/SayakKDutta/SayakKDutta/blob/main/chess%20gif%20-%20Google%20Search.gif]">
 
 ## My Chess.com Profile: [Sayak_K](https://www.chess.com/member/sayak_k)
 At present my goal is to achieve an ELO rating of 2000 in Rapid on chess.com  ⚡. Below is a record of my last 50 rapid games on chess.com (gets updated automatically daily at midnight), along with my overall chess statistics.
