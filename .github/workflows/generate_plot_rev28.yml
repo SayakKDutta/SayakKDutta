@@ -69,11 +69,6 @@ jobs:
       - name: Push changes
         run: git push --force
 
-
-      - name: Update README
-        run: |
-          currentDate=$(TZ=India/Kolkata date)
-          echo "Rating Chart and my Stats last updated on (TimeZone:IST)  ${currentDate}" >> README.md
           
       - name: Commit changes
         if: ${{ failure() }}
@@ -82,7 +77,7 @@ jobs:
           author_name: SayakKDutta
           author_email: sayak.kr.dutta1@gmail.com
           message: "Auto updating my readme and workflow timing!"
-          add: "README.md .github/workflows/rating-chart.yml assets/updated_plot.png"
+          add: " .github/workflows/rating-chart.yml assets/updated_plot.png"
 
       - name: Add Date-Time Tag
         run: |
