@@ -40,8 +40,10 @@
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=sayakkdutta&" alt="sayakkdutta" width="400" height="200" />
 </p>
 
-## Chess Rating Plot of my last 50 matches in chess.com
-<img src="assets/plot.png" width="400" height="300">  <img src="chess-checkmate.gif" width="300" height="300">
+## My Chess.com Profile [Sayak_K](https://www.chess.com/member/sayak_k)
+I am currently aiming to reach ELO 2000 in Rapid on chess.com ⚡. Here is an rating tracker of my 50 previous chess.com rapid games as well as my Chess stats.
+<img src="assets/plot.png" width="500" height="300">  <img src="assets/plot2.png" width="500" height="300">
+### Gets updated everyday at midnight.
 <!-- LAST_UPDATED_TIMESTAMP -->
 
 
