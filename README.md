@@ -50,3 +50,5 @@ At present my goal is to achieve an ELO rating of 2000 in Rapid on chess.com  âš
 
 
 
+\nChart last updated - Sun May 12 14:25:57 India 2024
+Timestamp: 2024-05-12 19:55:57 IST
