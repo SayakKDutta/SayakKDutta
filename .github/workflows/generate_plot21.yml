@@ -47,6 +47,8 @@ jobs:
         run: |
           git config --global user.name "SayakKDutta"
           git config --global user.email "sayak.kr.dutta1@gmail.com"
+      - name: Pull changes from remote
+        run: git pull origin main --ff-only
       - name: Add changes
         run: git add assets
       - name: Commit changes
