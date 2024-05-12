@@ -41,7 +41,7 @@
 </p>
 
 ## My Chess.com Profile: [Sayak_K](https://www.chess.com/member/sayak_k)
-I am currently aiming to reach ELO 2000 in Rapid on chess.com ⚡. Here is an rating tracker of my 50 previous chess.com rapid games as well as my Chess stats.
+At present my goal is to achieve an ELO rating of 2000 in Rapid on chess.com  ⚡. Below is a record of my last 50 rapid games on chess.com (gets updated automatically daily at midnight), along with my overall chess statistics.
 
 ### Automatically updates daily at midnight.
 <img align="left"  src="assets/plot.png" width="600" height="300"> <img align="right" src="assets/plot2.png" width="600" height="300">
