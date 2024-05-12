@@ -47,3 +47,4 @@ At present my goal is to achieve an ELO rating of 2000 in Rapid on chess.com  âš
 <img align="left"  src="assets/plot.png" width="600" height="300"> <img align="right" src="assets/plot2.png" width="600" height="300">
 
 
+Timestamp: 2024-05-12 20:34:37 IST
