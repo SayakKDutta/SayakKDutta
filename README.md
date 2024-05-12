@@ -44,7 +44,7 @@
 At present my goal is to achieve an ELO rating of 2000 in Rapid on chess.com  ⚡. Below is a record of my last 50 rapid games on chess.com (gets updated automatically daily at midnight), along with my overall chess statistics.
 
 ### Both my rating chart and my stats automatically gets updated daily at midnight.
-<img align="left"  src="assets/plot.png" width="400" height="300"> <img align="right" src="assets/plot2.png" width="400" height="300">
+<img align="left"  src="assets/plot.png" width="800" height="300"> <img align="right" src="assets/plot2.png" width="800" height="300">
 </p>
 
 
