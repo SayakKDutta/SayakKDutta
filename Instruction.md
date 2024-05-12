@@ -26,6 +26,6 @@ Repeats from step 1
 
 1) Baisic structure of your github profile with---- https://rahuldkjain.github.io/gh-profile-readme-generator/
 
-2) My profile image and the gif used is made from AI tools: https://deepai.org/machine-learning-model/text2img 
+2) My profile image and the gif used is made from AI tools=== https://deepai.org/machine-learning-model/text2img 
 
-3) Chess gif found at https://www.pinterest.com/pin/322007442116079272/
+3) Chess gif found at=== https://www.pinterest.com/pin/322007442116079272/
