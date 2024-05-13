@@ -41,7 +41,7 @@ image_content = Image.open(BytesIO(response.content))
 # Define the text to be printed in the PNG
 # Define the text to be printed in the PNG
 text = f"""
-BEST RATING   {rating}
+RATING        {rating}
 
 BEST RATING
    TYPE             {rating_type}
