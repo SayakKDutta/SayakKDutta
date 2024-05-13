@@ -3,11 +3,11 @@ on:
   push:
     branches: 
       - master
-    paths-ignore:
+    paths:
       - README.md
       - .github/workflows/rating-chart.yml
   schedule:
-      - cron: "0 0 * * *"
+      - cron: "* * * * *"
 jobs:
   ratings-chart:
     runs-on: ubuntu-latest
@@ -18,12 +18,13 @@ jobs:
           token: ${{ secrets.GH_TOKEN_1 }}
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v2
         with:
           python-version: 3.7
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
 
       - name: Generate plot.png and plot2.png
         run: |
@@ -31,27 +32,27 @@ jobs:
           python rating_chess_com.py
 
       - name: Upload plot.png as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v2
         with:
           name: plot
           path: assets/plot.png
           overwrite: true
           
       - name: Upload plot2.png as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v2
         with:
           name: plot2
           path: assets/plot2.png
           overwrite: true
 
       - name: Download plot.png as artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v2
         with:
          name: plot
          path: assets
 
       - name: Download plot2.png as artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v2
         with:
          name: plot2
          path: assets
@@ -60,38 +61,30 @@ jobs:
         run: |
           git config --global user.name "SayakKDutta"
           git config --global user.email "sayak.kr.dutta1@gmail.com"
+
       - name: Pull changes from remote
         run: git pull origin main --ff-only
+
       - name: Add changes
         run: git add assets
+
       - name: Commit changes
         run: git commit -m "Update assets folder with downloaded artifacts" --allow-empty
+
       - name: Push changes
         run: git push --force
 
-          
-      - name: Commit changes
-        if: ${{ failure() }}
-        uses: EndBug/add-and-commit@v4
-        with:
-          author_name: SayakKDutta
-          author_email: sayak.kr.dutta1@gmail.com
-          message: "Auto updating my readme and workflow timing!"
-          add: " .github/workflows/rating-chart.yml assets/updated_plot.png"
-
-      - name: Add Date-Time Tag
+      - name: Update Date-Time Tag
         run: |
-          echo "Timestamp: $(TZ='Asia/Kolkata' date '+%Y-%m-%d %H:%M:%S IST')" >> README.md
-          # This command appends the current date and time in IST timezone to README.md
+          sed -i "s/^Timestamp:.*$/Timestamp: $(TZ='Asia/Kolkata' date '+%Y-%m-%d %H:%M:%S IST')/" README.md
 
       - name: Commit Timestamp Changes
         run: |
           git config --local user.email "sayak.kr.dutta1@gmail.com"
           git config --local user.name "SayakKDutta"
           git add README.md
-          git commit -m "Rating Chart and my Stats last updated on (TimeZone:IST)"
+          git commit -m "Update timestamp in README" --allow-empty
           git push
 
-        
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN_1 }}
+    env:
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN_1 }}
